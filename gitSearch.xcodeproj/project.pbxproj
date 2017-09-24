@@ -187,8 +187,8 @@
 		F5BF5B7A1F744ACE00E90FEE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F5BF5B7C1F744B6E00E90FEE /* Users */,
 				F5BF5B7B1F744AF300E90FEE /* Repositories */,
+				F5BF5B7C1F744B6E00E90FEE /* Users */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

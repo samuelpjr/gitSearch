@@ -19,15 +19,15 @@ class RepoTableViewController: UIViewController, AnimatableTabBarController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Public properties
     var languageTxt: String = ""
-    var activityIndicator = UIActivityIndicatorView()
     
     // MARK: Controllers
     override func viewDidLoad() {
         super.viewDidLoad()
-        showActivitIndicator()
+        activityIndicator.startAnimating()
         setup()
         featchRepositories()
     }
@@ -62,16 +62,6 @@ class RepoTableViewController: UIViewController, AnimatableTabBarController {
         language = languageTxt
         tableView.tableFooterView = UIView()
     }
-    
-    private func showActivitIndicator(){
-        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-    }
-
 }
 
 extension RepoTableViewController: UITableViewDataSource{
@@ -98,5 +88,3 @@ extension RepoTableViewController: UITableViewDataSource{
     
    
 }
-
-

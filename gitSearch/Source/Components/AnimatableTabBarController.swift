@@ -14,7 +14,7 @@ protocol AnimatableTabBarController{
 }
 
 ///
-/// Customisação e animação da tab bar
+/// Customization and animation of the tab bar
 ///
 extension AnimatableTabBarController where Self: UIViewController {
     

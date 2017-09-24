@@ -234,18 +234,28 @@
                                     <outlet property="delegate" destination="QGd-ca-kzo" id="fEY-3p-Sbg"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="J8y-zl-LaZ">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5P5-Uq-tDE"/>
+                                    <constraint firstAttribute="width" constant="20" id="JCS-YT-8qw"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5zl-CJ-Lhx" firstAttribute="bottom" secondItem="EjM-vv-bSR" secondAttribute="bottom" constant="-49" id="5eF-d7-4iZ"/>
                             <constraint firstItem="EjM-vv-bSR" firstAttribute="trailing" secondItem="5zl-CJ-Lhx" secondAttribute="trailing" id="9d1-S1-q6b"/>
+                            <constraint firstItem="J8y-zl-LaZ" firstAttribute="centerX" secondItem="5ym-RU-2kk" secondAttribute="centerX" id="VDI-gH-AnH"/>
                             <constraint firstItem="EjM-vv-bSR" firstAttribute="top" secondItem="5zl-CJ-Lhx" secondAttribute="top" id="XSw-BY-5Bp"/>
                             <constraint firstItem="EjM-vv-bSR" firstAttribute="leading" secondItem="5zl-CJ-Lhx" secondAttribute="leading" id="mWu-fT-jvF"/>
+                            <constraint firstItem="J8y-zl-LaZ" firstAttribute="centerY" secondItem="5ym-RU-2kk" secondAttribute="centerY" id="zQ1-lX-8aS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5zl-CJ-Lhx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Usuarios" id="13I-ZE-w8B"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="J8y-zl-LaZ" id="WSB-6A-uwc"/>
                         <outlet property="tableView" destination="EjM-vv-bSR" id="d9g-2x-GLT"/>
                     </connections>
                 </viewController>
@@ -265,9 +275,18 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gcR-4p-HNp">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="NtK-e6-Ht9"/>
+                                    <constraint firstAttribute="width" constant="20" id="oU8-Gc-FCo"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gcR-4p-HNp" firstAttribute="centerX" secondItem="EtB-SD-jdo" secondAttribute="centerX" id="2bc-kI-uQL"/>
+                            <constraint firstItem="gcR-4p-HNp" firstAttribute="centerY" secondItem="EtB-SD-jdo" secondAttribute="centerY" id="3wT-uE-b9p"/>
                             <constraint firstItem="REc-7j-7ma" firstAttribute="bottom" secondItem="1P2-dO-RAm" secondAttribute="bottom" constant="-49" id="6kV-Ae-6SV"/>
                             <constraint firstItem="1P2-dO-RAm" firstAttribute="trailing" secondItem="REc-7j-7ma" secondAttribute="trailing" id="a3g-g0-rSB"/>
                             <constraint firstItem="1P2-dO-RAm" firstAttribute="leading" secondItem="REc-7j-7ma" secondAttribute="leading" id="qwW-Pb-5NG"/>
@@ -277,6 +296,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Usuario" id="Awk-2X-EtA"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="gcR-4p-HNp" id="6AG-I9-Oq2"/>
                         <outlet property="webView" destination="1P2-dO-RAm" id="sEd-0p-OdO"/>
                     </connections>
                 </viewController>
@@ -528,10 +548,19 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zo4-jZ-uRo"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mPo-Wo-Vak">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="lAr-WT-Z6L"/>
+                                    <constraint firstAttribute="height" constant="20" id="s9F-ob-O9S"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mPo-Wo-Vak" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3JP-he-5fv"/>
                             <constraint firstItem="mgi-ND-lTI" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="49" id="5mr-HS-kdE"/>
+                            <constraint firstItem="mPo-Wo-Vak" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gh7-LG-Wdy"/>
                             <constraint firstItem="mgi-ND-lTI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JyS-MW-hN5"/>
                             <constraint firstItem="mgi-ND-lTI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Qdc-xi-kor"/>
                             <constraint firstItem="mgi-ND-lTI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n29-Rm-Mpn"/>
@@ -540,6 +569,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Repositorios" id="XwO-4u-9Ot"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="mPo-Wo-Vak" id="MMH-ee-Cct"/>
                         <outlet property="tableView" destination="mgi-ND-lTI" id="gEt-g9-XYG"/>
                     </connections>
                 </viewController>
@@ -559,18 +589,28 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="EfC-Cl-UH8">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Ytk-1x-YrE"/>
+                                    <constraint firstAttribute="width" constant="20" id="d9P-zD-GAY"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="k7R-Ur-2D1" firstAttribute="bottom" secondItem="Vjc-a0-UEE" secondAttribute="bottom" constant="-49" id="8Qy-gv-KmS"/>
                             <constraint firstItem="Vjc-a0-UEE" firstAttribute="top" secondItem="k7R-Ur-2D1" secondAttribute="top" id="FeM-7k-wh4"/>
+                            <constraint firstItem="EfC-Cl-UH8" firstAttribute="centerX" secondItem="EP2-nk-gO6" secondAttribute="centerX" id="K7J-eq-R64"/>
                             <constraint firstItem="k7R-Ur-2D1" firstAttribute="trailing" secondItem="Vjc-a0-UEE" secondAttribute="trailing" id="PGV-wI-A5P"/>
                             <constraint firstItem="Vjc-a0-UEE" firstAttribute="leading" secondItem="k7R-Ur-2D1" secondAttribute="leading" id="RVN-1m-iJf"/>
+                            <constraint firstItem="EfC-Cl-UH8" firstAttribute="centerY" secondItem="EP2-nk-gO6" secondAttribute="centerY" id="wSh-jt-Xw6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k7R-Ur-2D1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Repositorio" id="vdn-hp-qi5"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="EfC-Cl-UH8" id="HX9-h9-zID"/>
                         <outlet property="webView" destination="Vjc-a0-UEE" id="lIE-dT-d49"/>
                     </connections>
                 </viewController>

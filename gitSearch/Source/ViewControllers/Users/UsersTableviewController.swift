@@ -19,15 +19,16 @@ class UsersTableviewController: UIViewController, AnimatableTabBarController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Public properties
     var languageTxt: String = ""
-    var activityIndicator = UIActivityIndicatorView()
+   
     
     // MARK: Controller
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.showActivitIndicator()
+        activityIndicator.startAnimating()
         setup()
         featchUsers()
     }
@@ -55,19 +56,10 @@ class UsersTableviewController: UIViewController, AnimatableTabBarController {
         tableView.tableFooterView = UIView()
     }
     
-    private func showActivitIndicator(){
-        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-    }
-    
     fileprivate func featchUsers() {
         managerUsers.facthUsers(type: type, name: language) { (responseUsers) in
             self.responseUsers = responseUsers
-             self.activityIndicator.stopAnimating()
+            self.activityIndicator.stopAnimating()
             self.tableView.reloadData()
         }
     }
@@ -95,25 +87,3 @@ extension UsersTableviewController: UITableViewDataSource{
         return cell
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
