@@ -11,10 +11,8 @@ import UIKit
 class UsersTableviewController: UIViewController, AnimatableTabBarController {
     
     // MARK: - Private properties
-    private let managerUsers = UsersManager()
-    private var responseUsers: UsersResponse?
+    private var viewModel: UsersViewModel?
     private var language: String = ""
-    private let type = "users"
     private var urlWebview: String?
     
     // MARK: - Outlets
@@ -25,23 +23,25 @@ class UsersTableviewController: UIViewController, AnimatableTabBarController {
     var languageTxt: String = ""
    
     
-    // MARK: Controller
+    // MARK: ViewControllerLifeCicle
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.startAnimating()
-        setup()
-        featchUsers()
+        
+        setupViewController()
+        setupViewModel()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.hide()
+        self.hideTabBarController()
     }
     
+    // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "webViewUser"{
             if let index = tableView.indexPathForSelectedRow {
-                urlWebview = responseUsers?.users[index.row].html_url
+                urlWebview = viewModel?.responseUsers?.users?[index.row].html_url
             }
             let userWebViewController = segue.destination as! UserWebViewController
             if let url = urlWebview {
@@ -51,39 +51,47 @@ class UsersTableviewController: UIViewController, AnimatableTabBarController {
     }
     
     // MARK: - Private Functions
-    fileprivate func setup() {
+    private func setupViewModel() {
+        viewModel = UsersViewModel()
+        viewModel?.facthUsers(languageName: language)
+        viewModel?.delegate = self
+    }
+    
+    private func setupViewController() {
+        activityIndicator.startAnimating()
         language = languageTxt
         tableView.tableFooterView = UIView()
     }
-    
-    fileprivate func featchUsers() {
-        managerUsers.facthUsers(type: type, name: language) { (responseUsers) in
-            self.responseUsers = responseUsers
-            self.activityIndicator.stopAnimating()
-            self.tableView.reloadData()
-        }
+}
+
+extension UsersTableviewController: UsersViewModelDelegate {
+    func dataDidLoaded() {
+        self.activityIndicator.stopAnimating()
+        self.tableView.reloadData()
     }
 }
 
 extension UsersTableviewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if responseUsers != nil {
-            return (responseUsers?.users.count)!
-        }
-        return 0
+        guard let users = viewModel?.responseUsers?.users else {return 0}
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UsersCell
-        cell.nameLabel.text = responseUsers?.users[indexPath.row].name
-        cell.linguagemLabel.text = language
-        let url = URL(string:(responseUsers?.users[indexPath.row].avatar_url)!)
-        let data = try? Data(contentsOf: url!)
-        cell.userImage.image = UIImage(data: data!)
-        cell.userImage.layer.cornerRadius = 5
-        cell.userImage.clipsToBounds = true
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UsersCell else {
+            fatalError("UnvalidCell")
+        }
+        
+        let viewModel = UsersCellViewModel(
+            nameLabel: viewModel?.responseUsers?.users?[indexPath.row].login ?? "",
+            linguagemLabel: language,
+            userUrlImage: viewModel?.responseUsers?.users?[indexPath.row].avatar_url ?? ""
+        )
+        
+        cell.configuration(viewModel: viewModel)
+        
         return cell
     }
 }

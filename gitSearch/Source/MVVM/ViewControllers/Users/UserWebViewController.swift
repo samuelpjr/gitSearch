@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import WebKit
 
 class UserWebViewController: UIViewController, AnimatableTabBarController {
     
     // MARK: - Outlets
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Public properties
@@ -26,14 +27,14 @@ class UserWebViewController: UIViewController, AnimatableTabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         activityIndicator.stopAnimating()
-        self.hide()
+        self.hideTabBarController()
     }
     
     // MARK: - Private Functions
     fileprivate func loadingUrlRequest() {
         if let userUrl = URL(string: urlUser){
             let userUrlRequest = URLRequest(url: userUrl)
-            webView.loadRequest(userUrlRequest)
+            webView.load(userUrlRequest)
         }
     }
 }

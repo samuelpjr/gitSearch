@@ -13,16 +13,17 @@ class RepoViewController: UIViewController, AnimatableTabBarController {
     // MARK: - Private properties
     private var languageTxt: String = ""
     
-    // MARK: Controller
+    // MARK: ViewControllerLifeCicle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.show()
+        self.showTabBarController()
     }
     
+    // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "repositories"{
             if let button = sender as? UIButton {

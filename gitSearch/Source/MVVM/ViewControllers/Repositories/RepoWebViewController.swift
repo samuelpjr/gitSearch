@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import WebKit
 
 class RepoWebViewController: UIViewController, AnimatableTabBarController {
 
     // MARK: - Outlets
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Public properties
@@ -26,14 +27,14 @@ class RepoWebViewController: UIViewController, AnimatableTabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         activityIndicator.stopAnimating()
-        self.hide()
+        self.hideTabBarController()
     }
     
     // MARK: - Private Functions
     fileprivate func loadingUrlRequest() {
         if let repoUrl = URL(string: urlRepo){
             let repoUrlRequest = URLRequest(url: repoUrl)
-            webView.loadRequest(repoUrlRequest)
+            webView.load(repoUrlRequest)
         }
     }
     

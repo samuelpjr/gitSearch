@@ -20,7 +20,7 @@ class UsersViewController: UIViewController, AnimatableTabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.show()
+        self.showTabBarController()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

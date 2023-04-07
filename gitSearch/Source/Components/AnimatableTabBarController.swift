@@ -18,7 +18,7 @@ protocol AnimatableTabBarController{
 ///
 extension AnimatableTabBarController where Self: UIViewController {
     
-    func show() {
+    func showTabBarController() {
         self.tabBarController?.tabBar.alpha = 0.0
         self.tabBarController?.tabBar.isHidden = false
         UIView.animate(withDuration: 0.2) {
@@ -26,7 +26,7 @@ extension AnimatableTabBarController where Self: UIViewController {
         }
     }
     
-    func hide() {
+    func hideTabBarController() {
         tabBarController?.tabBar.alpha = 1.0
         UIView.animate(withDuration: 0.2, animations: {
             self.tabBarController?.tabBar.alpha = 0.0
