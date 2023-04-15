@@ -9,7 +9,7 @@
 import Foundation
 
 protocol RepositoriesViewModelDelegate: AnyObject {
-    func dataDidLoaded()
+    func didSelectLanguage(_ language: String)
 }
 
 class RepositoriesViewModel {
@@ -17,16 +17,17 @@ class RepositoriesViewModel {
     var response: RepoResponse?
     weak var delegate: RepositoriesViewModelDelegate?
 
-    func facthRepositories(languageName: String) {
+    func facthRepositories(languageName: String, complition: @escaping () -> Void) {
         Service.shared.execute(.listRepositories(languageName), expecting: RepoResponse.self) { result in
             switch result {
             case .success(let success):
-                DispatchQueue.main.async { [self] in
+                DispatchQueue.main.async {
                     self.response = success
-                    self.delegate?.dataDidLoaded()
+                    complition()
                 }
             case .failure(let failure):
                 print(failure)
+                complition()
             }
         }
     }

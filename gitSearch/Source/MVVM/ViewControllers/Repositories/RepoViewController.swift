@@ -11,11 +11,14 @@ import UIKit
 class RepoViewController: UIViewController, AnimatableTabBarController {
     
     // MARK: - Private properties
-    private var languageTxt: String = ""
+    private let repoView: RepoView = RepoView()
     
     // MARK: ViewControllerLifeCicle
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Repositories"
+        repoView.delegate = self
+        setupView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -23,28 +26,27 @@ class RepoViewController: UIViewController, AnimatableTabBarController {
         self.showTabBarController()
     }
     
-    // MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "repositories"{
-            if let button = sender as? UIButton {
-                guard let titleButton = button.currentTitle else {
-                    print("title button empty")
-                    return
-                }
-                languageTxt = titleButton
-            }
-            let repoTableViewController = segue.destination as! RepoTableViewController
-            repoTableViewController.languageTxt = languageTxt
-        }
+    fileprivate func setupView() {
+        view.addSubview(repoView)
+        
+        NSLayoutConstraint.activate([
+            repoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            repoView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            repoView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            repoView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            
+        ])
     }
+}
 
-    // MARK: Action
-    @IBAction func tapLanguage(_ sender: UIButton) {
-        guard let titleButton = sender.currentTitle else {
-            print("title button empty")
-            return
+extension RepoViewController: RepoViewDelegate {
+    // MARK: Navigation
+    func goToRepoList(_ language: String) {
+        let viewModel = RepositoriesViewModel()
+        viewModel.facthRepositories(languageName: language) { [self] in
+            let repolistViewController = RepoTableViewController(viewModel: viewModel)
+            repoView.spinner.stopAnimating()
+            self.navigationController?.pushViewController(repolistViewController, animated: true)
         }
-        languageTxt = titleButton
-        performSegue(withIdentifier: "repositories", sender: sender)
     }
 }

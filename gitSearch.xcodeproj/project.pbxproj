@@ -10,6 +10,10 @@
 		5713A71429DF82E800DC6C89 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5713A71329DF82E800DC6C89 /* Request.swift */; };
 		5713A71629DF836200DC6C89 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5713A71529DF836200DC6C89 /* EndPoint.swift */; };
 		5713A71829DF8A1000DC6C89 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5713A71729DF8A1000DC6C89 /* Service.swift */; };
+		5766DA0929E5DEAC00B1A159 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5766DA0829E5DEAC00B1A159 /* RootTabBarController.swift */; };
+		5766DA0B29E5E46D00B1A159 /* RepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5766DA0A29E5E46D00B1A159 /* RepoView.swift */; };
+		5766DA0D29E5F26000B1A159 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5766DA0C29E5F26000B1A159 /* UIViewExtension.swift */; };
+		5774CA4C29E70D7C00DF798D /* UIButtonExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5774CA4B29E70D7C00DF798D /* UIButtonExtention.swift */; };
 		57DDD68929E0BC9400A3C48F /* RepoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DDD68829E0BC9400A3C48F /* RepoCellViewModel.swift */; };
 		57DDD68E29E0BD4300A3C48F /* UsersCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DDD68D29E0BD4300A3C48F /* UsersCellViewModel.swift */; };
 		F5130A141F72B500002EE694 /* Repositorio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5130A131F72B500002EE694 /* Repositorio.swift */; };
@@ -18,7 +22,6 @@
 		F57C04231F73E7C700117A91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F57C04221F73E36300117A91 /* Assets.xcassets */; };
 		F5B4555F1F71EC3C00A0A0EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B4555E1F71EC3C00A0A0EB /* AppDelegate.swift */; };
 		F5B455611F71EC3C00A0A0EB /* RepoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B455601F71EC3C00A0A0EB /* RepoTableViewController.swift */; };
-		F5B455641F71EC3C00A0A0EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B455621F71EC3C00A0A0EB /* Main.storyboard */; };
 		F5B455691F71EC3C00A0A0EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B455671F71EC3C00A0A0EB /* LaunchScreen.storyboard */; };
 		F5B455741F71EC3C00A0A0EB /* gitSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B455731F71EC3C00A0A0EB /* gitSearchTests.swift */; };
 		F5B4557F1F71EC3C00A0A0EB /* gitSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B4557E1F71EC3C00A0A0EB /* gitSearchUITests.swift */; };
@@ -55,6 +58,10 @@
 		5713A71329DF82E800DC6C89 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		5713A71529DF836200DC6C89 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		5713A71729DF8A1000DC6C89 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		5766DA0829E5DEAC00B1A159 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		5766DA0A29E5E46D00B1A159 /* RepoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoView.swift; sourceTree = "<group>"; };
+		5766DA0C29E5F26000B1A159 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		5774CA4B29E70D7C00DF798D /* UIButtonExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtention.swift; sourceTree = "<group>"; };
 		57DDD68829E0BC9400A3C48F /* RepoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellViewModel.swift; sourceTree = "<group>"; };
 		57DDD68D29E0BD4300A3C48F /* UsersCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCellViewModel.swift; sourceTree = "<group>"; };
 		F5130A131F72B500002EE694 /* Repositorio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositorio.swift; sourceTree = "<group>"; };
@@ -64,7 +71,6 @@
 		F5B4555B1F71EC3C00A0A0EB /* gitSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B4555E1F71EC3C00A0A0EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B455601F71EC3C00A0A0EB /* RepoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewController.swift; sourceTree = "<group>"; };
-		F5B455631F71EC3C00A0A0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5B455681F71EC3C00A0A0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5B4556A1F71EC3C00A0A0EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5B4556F1F71EC3C00A0A0EB /* gitSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gitSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +226,7 @@
 			children = (
 				F5BF5B7B1F744AF300E90FEE /* Repositories */,
 				F5BF5B7C1F744B6E00E90FEE /* Users */,
+				5766DA0829E5DEAC00B1A159 /* RootTabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -231,6 +238,7 @@
 				F5BD813B1F7338770070AA8F /* RepoViewController.swift */,
 				F5130A191F72F81C002EE694 /* RepoCell.swift */,
 				F5D382A51F7570200064A073 /* RepoWebViewController.swift */,
+				5766DA0A29E5E46D00B1A159 /* RepoView.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -269,7 +277,6 @@
 		F5BF5B7F1F744C7900E90FEE /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				F5B455621F71EC3C00A0A0EB /* Main.storyboard */,
 				F5B455671F71EC3C00A0A0EB /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -295,6 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				F5D382A81F7591F30064A073 /* AnimatableTabBarController.swift */,
+				5766DA0C29E5F26000B1A159 /* UIViewExtension.swift */,
+				5774CA4B29E70D7C00DF798D /* UIButtonExtention.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -412,7 +421,6 @@
 			files = (
 				F5B455691F71EC3C00A0A0EB /* LaunchScreen.storyboard in Resources */,
 				F57C04231F73E7C700117A91 /* Assets.xcassets in Resources */,
-				F5B455641F71EC3C00A0A0EB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +445,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5766DA0B29E5E46D00B1A159 /* RepoView.swift in Sources */,
 				F5EA29B91F75C007006A6CCC /* UserWebViewController.swift in Sources */,
+				5774CA4C29E70D7C00DF798D /* UIButtonExtention.swift in Sources */,
+				5766DA0929E5DEAC00B1A159 /* RootTabBarController.swift in Sources */,
 				57DDD68E29E0BD4300A3C48F /* UsersCellViewModel.swift in Sources */,
 				F5B455611F71EC3C00A0A0EB /* RepoTableViewController.swift in Sources */,
 				F5BF5B841F745F4D00E90FEE /* UsersTableviewController.swift in Sources */,
@@ -454,6 +465,7 @@
 				F5BD813C1F7338770070AA8F /* RepoViewController.swift in Sources */,
 				F5130A141F72B500002EE694 /* Repositorio.swift in Sources */,
 				57DDD68929E0BC9400A3C48F /* RepoCellViewModel.swift in Sources */,
+				5766DA0D29E5F26000B1A159 /* UIViewExtension.swift in Sources */,
 				5713A71829DF8A1000DC6C89 /* Service.swift in Sources */,
 				F5130A161F72F009002EE694 /* RepositoriesViewModel.swift in Sources */,
 				F5DEA3301F7470A500ADC285 /* UsersViewModel.swift in Sources */,
@@ -492,14 +504,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F5B455621F71EC3C00A0A0EB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5B455631F71EC3C00A0A0EB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F5B455671F71EC3C00A0A0EB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

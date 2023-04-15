@@ -16,6 +16,7 @@ class UsersViewController: UIViewController, AnimatableTabBarController {
     // MARK: Controller
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Users"
     }
     
     override func viewDidAppear(_ animated: Bool) {
