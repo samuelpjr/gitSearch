@@ -15,19 +15,18 @@ protocol RepositoriesViewModelDelegate: AnyObject {
 class RepositoriesViewModel {
     
     var response: RepoResponse?
-    weak var delegate: RepositoriesViewModelDelegate?
 
-    func facthRepositories(languageName: String, complition: @escaping () -> Void) {
+    func facthRepositories(languageName: String, completion: @escaping () -> Void) {
         Service.shared.execute(.listRepositories(languageName), expecting: RepoResponse.self) { result in
             switch result {
             case .success(let success):
                 DispatchQueue.main.async {
                     self.response = success
-                    complition()
+                    completion()
                 }
             case .failure(let failure):
                 print(failure)
-                complition()
+                completion()
             }
         }
     }

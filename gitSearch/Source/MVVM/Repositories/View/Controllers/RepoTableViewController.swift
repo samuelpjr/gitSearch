@@ -8,18 +8,12 @@
 
 import UIKit
 
-class RepoTableViewController: UIViewController, AnimatableTabBarController, UITableViewDelegate {
+class RepoTableViewController: UIViewController, AnimatableTabBarController {
     
     // MARK: - Private properties
     private let viewModel: RepositoriesViewModel
-    private var urlWebview: String?
-    
     
     var tableView = UITableView()
-
-    
-    // MARK: - Public properties
-    var languageTxt: String = ""
     
     // MARK: ViewControllerLifeCicle
     init(viewModel: RepositoriesViewModel) {
@@ -41,19 +35,6 @@ class RepoTableViewController: UIViewController, AnimatableTabBarController, UIT
         super.viewDidAppear(animated)
         self.hideTabBarController()
     }
-    
-    // MARK: Navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "webviewRepo"{
-//            if let index = tableView.indexPathForSelectedRow {
-//                urlWebview = viewModel.response?.repositorios?[index.row].owner?.html_url
-//            }
-//            let repoWebViewController = segue.destination as! RepoWebViewController
-//            if let url = urlWebview{
-//                repoWebViewController.urlRepo = url
-//            }
-//        }
-//    }
     
     // MARK: - Private Functions
     func setupTableView() {
@@ -77,12 +58,11 @@ class RepoTableViewController: UIViewController, AnimatableTabBarController, UIT
     }
 }
 
-extension RepoTableViewController: UITableViewDataSource{
+extension RepoTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        guard let response = viewModel.response,
-              let repositories = response.repositorios else {
+        guard let repositories = viewModel.response?.repositorios else {
             print("numberOfRowsInSection is empty")
             return 0
         }
@@ -104,5 +84,18 @@ extension RepoTableViewController: UITableViewDataSource{
         
         cell.configure(with: viewmodel)
         return cell
+    }
+}
+
+extension RepoTableViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let urlWebview = viewModel.response?.repositorios?[indexPath.row].owner?.html_url
+
+        if let url = urlWebview {
+            let repoWebViewController = RepoWebViewController(urlRepo: url)
+            navigationController?.pushViewController(repoWebViewController, animated: true)
+        }
     }
 }

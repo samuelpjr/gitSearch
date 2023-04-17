@@ -9,7 +9,7 @@ import UIKit
 
 class RepoCell: UITableViewCell {
     
-    // MARK: - Outlets
+    
     lazy var nameLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

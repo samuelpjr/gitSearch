@@ -9,25 +9,26 @@
 import Foundation
 
 protocol UsersViewModelDelegate: AnyObject {
-    func dataDidLoaded()
+    func didSelectLanguage(_ language: String)
 }
-
 
 class UsersViewModel {
     
     var responseUsers: UsersResponse?
-    weak var delegate: UsersViewModelDelegate?
+    var languageName: String?
     
-    func facthUsers(languageName: String) {
+    func facthUsers(languageName: String, completion: @escaping () -> Void) {
         Service.shared.execute(.listUsers(languageName), expecting: UsersResponse.self) { result in
             switch result {
             case .success(let success):
                 DispatchQueue.main.sync { [self] in
                     self.responseUsers = success
-                    self.delegate?.dataDidLoaded()
+                    self.languageName = languageName
+                    completion()
                 }
             case .failure(let failure):
                 print(failure)
+                completion()
             }
         }
     }

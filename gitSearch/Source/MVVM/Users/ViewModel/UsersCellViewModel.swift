@@ -25,15 +25,6 @@ class UsersCellViewModel {
             fatalError("InvalidUrlImage")
         }
         
-        let urlRequest = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
-            
-            guard let data = data, error == nil else {
-                fatalError("InvalidData")
-            }
-            
-            completion(.success(data))
-        }
-        task.resume()
+        ImageLoader.shared.downloadImage(url, completion: completion)
     }
 }

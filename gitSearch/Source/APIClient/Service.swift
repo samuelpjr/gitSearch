@@ -38,7 +38,7 @@ class Service {
             
             do{
                 let result = try JSONDecoder().decode(type.self, from: data)
-                print(result)
+//                print(result)
                 completion(.success(result))
             } catch {
                 completion(.failure(error))
